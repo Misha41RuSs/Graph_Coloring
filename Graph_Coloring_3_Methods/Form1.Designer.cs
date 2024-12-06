@@ -40,6 +40,7 @@
             this.MoveVertexButton = new System.Windows.Forms.Button();
             this.colorGraphButton = new System.Windows.Forms.Button();
             this.ifSlowModeCheckBox = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,11 +121,23 @@
             this.ifSlowModeCheckBox.Text = "Поэтапно";
             this.ifSlowModeCheckBox.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(311, 483);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(270, 90);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "НОВЫЙ МЕТОД";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1114, 597);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ifSlowModeCheckBox);
             this.Controls.Add(this.colorGraphButton);
             this.Controls.Add(this.MoveVertexButton);
@@ -153,6 +166,7 @@
         private System.Windows.Forms.Button MoveVertexButton;
         private System.Windows.Forms.Button colorGraphButton;
         private System.Windows.Forms.CheckBox ifSlowModeCheckBox;
+        private System.Windows.Forms.Button button1;
     }
 }
 
