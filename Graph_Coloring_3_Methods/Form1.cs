@@ -89,7 +89,12 @@ namespace Graph_Coloring_3_Methods
 
         private void colorGraphButton_MouseClick(object sender, MouseEventArgs e)
         {
-            graph.Coloring(ifSlowModeCheckBox.Checked);
+            graph.Greedy(ifSlowModeCheckBox.Checked);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            graph.Backtracking(ifSlowModeCheckBox.Checked);
         }
     }
 }

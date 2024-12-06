@@ -12,7 +12,8 @@ namespace Graph_Coloring_3_Methods
         private VertexManager vertexManager;
         private RibManager ribManager;
         private GraphDrawer graphDrawer;
-        private GreedyColoring graphColoring;
+        private GreedyColoring greedyColoring;
+        private BacktrackingColoring backtrackingColoring;
 
         public Graph(Graphics graphEgitorBox)
         {
@@ -20,7 +21,8 @@ namespace Graph_Coloring_3_Methods
             ribManager = new RibManager();
             graphDrawer = new GraphDrawer(graphEgitorBox);
             ColorPalette palette = new ColorPalette();
-            graphColoring = new GreedyColoring(palette);
+            greedyColoring = new GreedyColoring(palette);
+            backtrackingColoring = new BacktrackingColoring(palette);
         }
 
         public void AddVertex(Point point)
@@ -46,12 +48,14 @@ namespace Graph_Coloring_3_Methods
             ribManager.DeleteRib(vertexManager);
             graphDrawer.DrawGraph(vertexManager, ribManager);
         }
-
-        public void Coloring(bool ifSlowModeCheckBox)
+        public void Greedy(bool ifSlowModeCheckBox)
         {
-            graphColoring.Coloring(vertexManager, ribManager, ifSlowModeCheckBox);
+            greedyColoring.Coloring(vertexManager, ribManager, ifSlowModeCheckBox);
         }
-
+        public void Backtracking(bool ifSlowModeCheckBox) 
+        {
+            backtrackingColoring.Coloring(vertexManager, ribManager, ifSlowModeCheckBox);
+        }
         public void DrawGraph()
         {
             graphDrawer.DrawGraph(vertexManager, ribManager);
