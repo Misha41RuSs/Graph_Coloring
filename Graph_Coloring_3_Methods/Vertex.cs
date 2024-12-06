@@ -49,7 +49,7 @@ namespace Graph_Coloring_3_Methods
             }
             graphEgitorBox.DrawString(index.ToString(), new Font("Arial", 14), new SolidBrush(colorForPen), position.X + 12 - radius, position.Y + 9 - radius);
         }
-
+        
         public void Move(Point point)
         {
             position = point;

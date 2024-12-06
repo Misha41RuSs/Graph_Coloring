@@ -80,6 +80,13 @@ namespace Graph_Coloring_3_Methods
         {
             vertexManager.MoveVertex(point);
         }
+        public void ClearColors()
+        {
+            foreach (var vertex in vertexManager.vertexesList)
+            {
+                vertex.ColorVertex(Color.White);
+            }
+        }
     }
 }
 

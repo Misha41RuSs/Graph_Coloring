@@ -7,15 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Graph_Coloring_3_Methods
 {
-    public partial class Form1 : Form
+    public partial class From1 : Form
     {
         private Graphics graphEgitorBox;
         private Graph graph;
 
-        public Form1()
+        public From1()
         {
             InitializeComponent();
             graphEgitorBox = pictureBox1.CreateGraphics();
@@ -89,12 +90,48 @@ namespace Graph_Coloring_3_Methods
 
         private void colorGraphButton_MouseClick(object sender, MouseEventArgs e)
         {
-            graph.Greedy(ifSlowModeCheckBox.Checked);
+            textBox1.Text = "";
+            if (!ifSlowModeCheckBox.Checked)
+            {
+                DateTime StartTime = DateTime.Now;
+                graph.Greedy(ifSlowModeCheckBox.Checked);
+                TimeSpan ts = DateTime.Now.Subtract(StartTime);
+                textBox1.Text = ts.Milliseconds.ToString();
+            }
+            else { graph.Greedy(ifSlowModeCheckBox.Checked); }
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            graph.Backtracking(ifSlowModeCheckBox.Checked);
+            textBox1.Text = "";
+            if (!ifSlowModeCheckBox.Checked)
+            {
+                DateTime StartTime = DateTime.Now;
+                graph.Backtracking(ifSlowModeCheckBox.Checked);
+                TimeSpan ts = DateTime.Now.Subtract(StartTime);
+                textBox1.Text = ts.Milliseconds.ToString();
+            }
+            else { graph.Backtracking(ifSlowModeCheckBox.Checked); }
+        }
+
+        private void deleteEdgeButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            graph.ClearColors();
+        }
+
+        private void colorGraphButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

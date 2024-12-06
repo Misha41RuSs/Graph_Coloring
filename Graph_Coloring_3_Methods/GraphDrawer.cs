@@ -33,5 +33,7 @@ namespace Graph_Coloring_3_Methods
 
             graphEgitorBox.DrawLine(new Pen(Color.Black), firstVertexPosition, secondVertexPosition);
         }
+
+        
     }
 }
