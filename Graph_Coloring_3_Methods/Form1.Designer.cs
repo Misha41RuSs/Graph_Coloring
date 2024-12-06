@@ -40,6 +40,7 @@
             this.MoveVertexButton = new System.Windows.Forms.Button();
             this.colorGraphButton = new System.Windows.Forms.Button();
             this.ifSlowModeCheckBox = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +74,7 @@
             // 
             // deleteVertexButon
             // 
-            this.deleteVertexButon.Location = new System.Drawing.Point(15, 332);
+            this.deleteVertexButon.Location = new System.Drawing.Point(882, 83);
             this.deleteVertexButon.Name = "deleteVertexButon";
             this.deleteVertexButon.Size = new System.Drawing.Size(75, 23);
             this.deleteVertexButon.TabIndex = 3;
@@ -82,7 +83,7 @@
             // 
             // deleteEdgeButton
             // 
-            this.deleteEdgeButton.Location = new System.Drawing.Point(15, 438);
+            this.deleteEdgeButton.Location = new System.Drawing.Point(872, 259);
             this.deleteEdgeButton.Name = "deleteEdgeButton";
             this.deleteEdgeButton.Size = new System.Drawing.Size(101, 36);
             this.deleteEdgeButton.TabIndex = 4;
@@ -91,17 +92,18 @@
             // 
             // MoveVertexButton
             // 
-            this.MoveVertexButton.Location = new System.Drawing.Point(883, 187);
+            this.MoveVertexButton.Location = new System.Drawing.Point(882, 171);
             this.MoveVertexButton.Name = "MoveVertexButton";
             this.MoveVertexButton.Size = new System.Drawing.Size(75, 23);
             this.MoveVertexButton.TabIndex = 5;
             this.MoveVertexButton.Text = "button1";
+            this.MoveVertexButton.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.MoveVertexButton.UseVisualStyleBackColor = true;
             // 
             // colorGraphButton
             // 
             this.colorGraphButton.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.colorGraphButton.Location = new System.Drawing.Point(807, 419);
+            this.colorGraphButton.Location = new System.Drawing.Point(789, 343);
             this.colorGraphButton.Name = "colorGraphButton";
             this.colorGraphButton.Size = new System.Drawing.Size(270, 90);
             this.colorGraphButton.TabIndex = 6;
@@ -113,18 +115,30 @@
             // ifSlowModeCheckBox
             // 
             this.ifSlowModeCheckBox.AutoSize = true;
-            this.ifSlowModeCheckBox.Location = new System.Drawing.Point(851, 348);
+            this.ifSlowModeCheckBox.Location = new System.Drawing.Point(682, 522);
             this.ifSlowModeCheckBox.Name = "ifSlowModeCheckBox";
             this.ifSlowModeCheckBox.Size = new System.Drawing.Size(75, 17);
             this.ifSlowModeCheckBox.TabIndex = 7;
             this.ifSlowModeCheckBox.Text = "Поэтапно";
             this.ifSlowModeCheckBox.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(789, 479);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(270, 90);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "НОВЫЙ МЕТОД";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1114, 597);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ifSlowModeCheckBox);
             this.Controls.Add(this.colorGraphButton);
             this.Controls.Add(this.MoveVertexButton);
@@ -134,6 +148,7 @@
             this.Controls.Add(this.addVertexButton);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -153,6 +168,7 @@
         private System.Windows.Forms.Button MoveVertexButton;
         private System.Windows.Forms.Button colorGraphButton;
         private System.Windows.Forms.CheckBox ifSlowModeCheckBox;
+        private System.Windows.Forms.Button button1;
     }
 }
 
