@@ -10,7 +10,6 @@ namespace Graph_Coloring_3_Methods
     internal class GreedyColoring : IColorer
     {
         private ColorPalette _palette;
-        private int current_i = 0;
 
         public GreedyColoring(ColorPalette palette)
         {
@@ -23,14 +22,10 @@ namespace Graph_Coloring_3_Methods
 
             List<int> color_indexes = Enumerable.Repeat(0, MatrixSize).ToList();
 
-            int matrixIlength = ifSlowModeCheckBox ? current_i + 1 : MatrixSize;
-            current_i = ifSlowModeCheckBox ? current_i + 1 : 0;
-
-            if (current_i > MatrixSize) current_i = 0;
+            int matrixIlength = ifSlowModeCheckBox ? 1 : MatrixSize;
 
             for (int i = 0; i < matrixIlength; i++)
             {
-                if (i >= MatrixSize) break;
                 int VertexIndexI = vertexManager.vertexesList[i].index;
 
                 for (int j = 0; j < MatrixSize; j++)
