@@ -10,33 +10,63 @@ namespace Graph_Coloring_3_Methods
     internal class GreedyColoring : IColorer
     {
         private ColorPalette _palette;
+        private List<int> _colorIndexes;
+        private int _currentVertexIndex;
 
         public GreedyColoring(ColorPalette palette)
         {
             _palette = palette;
+            _colorIndexes = new List<int>();
+            _currentVertexIndex = 0;
         }
 
         public void Coloring(VertexManager vertexManager, RibManager ribManager, bool ifSlowModeCheckBox)
         {
-            int MatrixSize = vertexManager.vertexesList.Count();
+            int matrixSize = vertexManager.vertexesList.Count();
 
-            List<int> color_indexes = Enumerable.Repeat(0, MatrixSize).ToList();
-
-            int matrixIlength = ifSlowModeCheckBox ? 1 : MatrixSize;
-
-            for (int i = 0; i < matrixIlength; i++)
+            if (_colorIndexes.Count == 0)
             {
-                int VertexIndexI = vertexManager.vertexesList[i].index;
+                _colorIndexes = Enumerable.Repeat(0, matrixSize).ToList();
+            }
 
-                for (int j = 0; j < MatrixSize; j++)
+            if (ifSlowModeCheckBox)
+            {
+                if (_currentVertexIndex < matrixSize)
                 {
-                    int VertexIndexJ = vertexManager.vertexesList[j].index;
+                    int vertexIndexI = vertexManager.vertexesList[_currentVertexIndex].index;
 
-                    if (ribManager.ribsList.Contains(new Point(VertexIndexI, VertexIndexJ)) && color_indexes[i] == color_indexes[j])
-                        color_indexes[j]++;
+                    for (int j = 0; j < matrixSize; j++)
+                    {
+                        int vertexIndexJ = vertexManager.vertexesList[j].index;
+
+                        if (ribManager.ribsList.Contains(new Point(vertexIndexI, vertexIndexJ)) && _colorIndexes[_currentVertexIndex] == _colorIndexes[j])
+                            _colorIndexes[j]++;
+                    }
+
+                    vertexManager.vertexesList[_currentVertexIndex].ColorVertex(_palette.Colors[_colorIndexes[_currentVertexIndex]]);
+                    _currentVertexIndex++;
                 }
+                else
+                {
+                    _currentVertexIndex = 0;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < matrixSize; i++)
+                {
+                    int vertexIndexI = vertexManager.vertexesList[i].index;
 
-                vertexManager.vertexesList[i].ColorVertex(_palette.Colors[color_indexes[i]]);
+                    for (int j = 0; j < matrixSize; j++)
+                    {
+                        int vertexIndexJ = vertexManager.vertexesList[j].index;
+
+                        if (ribManager.ribsList.Contains(new Point(vertexIndexI, vertexIndexJ)) && _colorIndexes[i] == _colorIndexes[j])
+                            _colorIndexes[j]++;
+                    }
+
+                    vertexManager.vertexesList[i].ColorVertex(_palette.Colors[_colorIndexes[i]]);
+                }
             }
         }
     }
