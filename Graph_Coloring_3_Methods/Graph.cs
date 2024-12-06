@@ -12,14 +12,15 @@ namespace Graph_Coloring_3_Methods
         private VertexManager vertexManager;
         private RibManager ribManager;
         private GraphDrawer graphDrawer;
-        private GraphColoring graphColoring;
+        private GreedyColoring graphColoring;
 
         public Graph(Graphics graphEgitorBox)
         {
             vertexManager = new VertexManager();
             ribManager = new RibManager();
             graphDrawer = new GraphDrawer(graphEgitorBox);
-            graphColoring = new GraphColoring();
+            ColorPalette palette = new ColorPalette();
+            graphColoring = new GreedyColoring(palette);
         }
 
         public void AddVertex(Point point)

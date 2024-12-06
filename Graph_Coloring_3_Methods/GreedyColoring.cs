@@ -7,10 +7,14 @@ using System.Threading.Tasks;
 
 namespace Graph_Coloring_3_Methods
 {
-    internal class GraphColoring
+    internal class GreedyColoring : IColorer
     {
-        public List<Color> colorsList = new List<Color> { Color.Red, Color.Blue, Color.Green, Color.Magenta, Color.Cyan, Color.Yellow };
-        private int num = 0;
+        private ColorPalette _palette;
+
+        public GreedyColoring(ColorPalette palette)
+        {
+            _palette = palette;
+        }
 
         public void Coloring(VertexManager vertexManager, RibManager ribManager, bool ifSlowModeCheckBox)
         {
@@ -18,7 +22,7 @@ namespace Graph_Coloring_3_Methods
 
             List<int> color_indexes = Enumerable.Repeat(0, MatrixSize).ToList();
 
-            int matrixIlength = ifSlowModeCheckBox ? ++num : MatrixSize;
+            int matrixIlength = ifSlowModeCheckBox ? 1 : MatrixSize;
 
             for (int i = 0; i < matrixIlength; i++)
             {
@@ -32,7 +36,7 @@ namespace Graph_Coloring_3_Methods
                         color_indexes[j]++;
                 }
 
-                vertexManager.vertexesList[i].ColorVertex(colorsList[color_indexes[i]]);
+                vertexManager.vertexesList[i].ColorVertex(_palette.Colors[color_indexes[i]]);
             }
         }
     }
