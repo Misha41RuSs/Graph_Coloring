@@ -16,7 +16,7 @@ namespace Graph_Coloring_3_Methods
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new From1());
+            Application.Run(new Form1());
         }
     }
 }

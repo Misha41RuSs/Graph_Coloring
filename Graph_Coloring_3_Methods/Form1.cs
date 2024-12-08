@@ -12,7 +12,7 @@ using System.Linq.Expressions;
 
 namespace Graph_Coloring_3_Methods
 {
-    public partial class From1 : Form
+    public partial class Form1 : Form
     {
         private Graphics graphEgitorBox;
         private Graph graph;
@@ -23,8 +23,9 @@ namespace Graph_Coloring_3_Methods
         private bool addEdgeClicked = false;
         private Color activeButtonColor = Color.FromArgb(25, 106, 143);
         private Color passiveButtonColor = Color.FromArgb(73, 76, 120);
+        private Form activeForm = null;
 
-        public From1()
+        public Form1()
         {
             InitializeComponent();
             customizeDesign();
@@ -159,7 +160,7 @@ namespace Graph_Coloring_3_Methods
         
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            textBox1.Text = "";
             try
             {
                 if (countEdges < 1 && countVertices < 2)
@@ -194,12 +195,13 @@ namespace Graph_Coloring_3_Methods
 
         private void button3_Click(object sender, EventArgs e)
         {
+            
             showSubmenu(panelDrawingSubmenu);
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new Form2());
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -247,6 +249,22 @@ namespace Graph_Coloring_3_Methods
         {
             SetButtonColors(deleteEdgeButton);
             removeObjectClicked = true;
+        }
+        private void openChildForm(Form childform) 
+        {
+            if (activeForm != null) 
+            {
+                activeForm.Close();
+            }
+            activeForm = childform;
+            childform.TopLevel = false;
+            childform.FormBorderStyle = FormBorderStyle.None;
+            childform.Dock = DockStyle.Fill;
+            this.panel1.Controls.Add(childform);
+            this.panel3.Tag = childform;
+            childform.BringToFront();
+            childform.Show();
+            label4.Text = childform.Text;
         }
     }
 }
