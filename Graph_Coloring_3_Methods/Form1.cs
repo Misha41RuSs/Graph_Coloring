@@ -119,7 +119,6 @@ namespace Graph_Coloring_3_Methods
 
         private void colorGraphButton_MouseClick(object sender, MouseEventArgs e)
         {
-            
             textBox1.Text = "";
             try
             {
@@ -144,16 +143,26 @@ namespace Graph_Coloring_3_Methods
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-           
-            textBox1.Text = "";
-            if (!ifSlowModeCheckBox.Checked)
+
+            try
             {
-                DateTime StartTime = DateTime.Now;
-                graph.Backtracking(ifSlowModeCheckBox.Checked);
-                TimeSpan ts = DateTime.Now.Subtract(StartTime);
-                textBox1.Text = ts.Milliseconds.ToString();
+                if (countEdges < 1 && countVertices < 2)
+                {
+                    throw new InvalidOperationException("В графе должно быть хотя бы две вершины.");
+                }
+                if (!ifSlowModeCheckBox.Checked)
+                {
+                    DateTime StartTime = DateTime.Now;
+                    graph.Backtracking(ifSlowModeCheckBox.Checked);
+                    TimeSpan ts = DateTime.Now.Subtract(StartTime);
+                    textBox1.Text = ts.Milliseconds.ToString();
+                }
+                else { graph.Backtracking(ifSlowModeCheckBox.Checked); }
             }
-            else { graph.Backtracking(ifSlowModeCheckBox.Checked); }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void deleteEdgeButton_Click(object sender, EventArgs e)
