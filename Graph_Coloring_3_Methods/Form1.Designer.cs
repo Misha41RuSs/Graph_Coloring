@@ -301,7 +301,6 @@
             // 
             this.addEdgeButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.addEdgeButton.FlatAppearance.BorderSize = 0;
-            this.addEdgeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(106)))), ((int)(((byte)(143)))));
             this.addEdgeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(106)))), ((int)(((byte)(143)))));
             this.addEdgeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addEdgeButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -335,6 +334,7 @@
             this.addVertexButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addVertexButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addVertexButton.UseVisualStyleBackColor = true;
+            this.addVertexButton.Click += new System.EventHandler(this.addVertexButton_Click);
             // 
             // button3
             // 

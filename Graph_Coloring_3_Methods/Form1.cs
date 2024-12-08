@@ -18,6 +18,11 @@ namespace Graph_Coloring_3_Methods
         private Graph graph;
         private int countVertices = 0;
         private int countEdges = 0;
+        private bool addVertexClicked = false;
+        private bool removeObjectClicked = false;
+        private bool addEdgeClicked = false;
+        private Color activeButtonColor = Color.FromArgb(25, 106, 143);
+        private Color passiveButtonColor = Color.FromArgb(73, 76, 120);
 
         public From1()
         {
@@ -140,7 +145,13 @@ namespace Graph_Coloring_3_Methods
                 MessageBox.Show("Ошибка: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void ChangeButtonsColor()
+        {
+            deleteEdgeButton.BackColor = (removeObjectClicked) ? activeButtonColor : passiveButtonColor;
+            addVertexButton.BackColor = (addVertexClicked) ? activeButtonColor : passiveButtonColor;
+            addEdgeButton.BackColor = (addEdgeClicked) ? activeButtonColor : passiveButtonColor;
 
+        }
         private void button1_Click_1(object sender, EventArgs e)
         {
 
@@ -211,6 +222,11 @@ namespace Graph_Coloring_3_Methods
         private void buttonMatrix_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void addVertexButton_Click(object sender, EventArgs e)
+        {
+            addVertexButton.BackColor = Color.FromArgb(0x196a8f);
         }
     }
 }
