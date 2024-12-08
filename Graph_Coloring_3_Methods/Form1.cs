@@ -36,6 +36,15 @@ namespace Graph_Coloring_3_Methods
             toolTip2.SetToolTip(addEdgeButton, "Добавить ребро");
             toolTipGraph.SetToolTip(buttonMatrix, "Задать граф матрицей смежности");
         }
+        private void SetButtonColors(Button activeButton)
+        {
+            // Обновляем цвета кнопок
+            addVertexButton.BackColor = (activeButton == addVertexButton) ? activeButtonColor : passiveButtonColor;
+            addEdgeButton.BackColor = (activeButton == addEdgeButton) ? activeButtonColor : passiveButtonColor;
+            MoveVertexButton.BackColor = (activeButton == MoveVertexButton) ? activeButtonColor : passiveButtonColor;
+            deleteVertexButon.BackColor = (activeButton == deleteVertexButon) ? activeButtonColor : passiveButtonColor;
+            deleteEdgeButton.BackColor = (activeButton == deleteEdgeButton) ? activeButtonColor : passiveButtonColor;
+        }
         private void customizeDesign()
         {
             panelDrawingSubmenu.Visible = false;
@@ -70,6 +79,8 @@ namespace Graph_Coloring_3_Methods
         {
             if (addVertexButton.Focused)
             {
+                SetButtonColors(addVertexButton);
+                addVertexClicked = true;
                 graph.AddVertex(new Point(e.X, e.Y));
                 countVertices++;
             }
@@ -115,7 +126,7 @@ namespace Graph_Coloring_3_Methods
                 }
             }
         }
-
+        
         private void colorGraphButton_Leave(object sender, EventArgs e)
         {
             ClearEditorPictureBox();
@@ -145,13 +156,7 @@ namespace Graph_Coloring_3_Methods
                 MessageBox.Show("Ошибка: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void ChangeButtonsColor()
-        {
-            deleteEdgeButton.BackColor = (removeObjectClicked) ? activeButtonColor : passiveButtonColor;
-            addVertexButton.BackColor = (addVertexClicked) ? activeButtonColor : passiveButtonColor;
-            addEdgeButton.BackColor = (addEdgeClicked) ? activeButtonColor : passiveButtonColor;
-
-        }
+        
         private void button1_Click_1(object sender, EventArgs e)
         {
 
@@ -176,16 +181,6 @@ namespace Graph_Coloring_3_Methods
             }
         }
 
-        private void deleteEdgeButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             graph.ClearColors();
@@ -195,6 +190,7 @@ namespace Graph_Coloring_3_Methods
         {
 
         }
+
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -226,7 +222,31 @@ namespace Graph_Coloring_3_Methods
 
         private void addVertexButton_Click(object sender, EventArgs e)
         {
-            addVertexButton.BackColor = Color.FromArgb(0x196a8f);
+            SetButtonColors(addVertexButton);
+            addVertexClicked = true;
+        }
+
+        private void addEdgeButton_Click(object sender, EventArgs e)
+        {
+            SetButtonColors(addEdgeButton);
+            addEdgeClicked = true;
+        }
+
+        private void MoveVertexButton_Click(object sender, EventArgs e)
+        {
+            SetButtonColors(MoveVertexButton);
+        }
+
+        private void deleteVertexButon_Click(object sender, EventArgs e)
+        {
+            SetButtonColors(deleteVertexButon);
+            removeObjectClicked = true;
+        }
+
+        private void deleteEdgeButton_Click_1(object sender, EventArgs e)
+        {
+            SetButtonColors(deleteEdgeButton);
+            removeObjectClicked = true;
         }
     }
 }
