@@ -56,8 +56,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.ifSlowModeCheckBox = new Graph_Coloring_3_Methods.RJToggleButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panelDrawingSubmenu.SuspendLayout();
@@ -438,18 +439,6 @@
             this.label5.TabIndex = 17;
             this.label5.Text = "Раскраска поэтапно";
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.colorGraphButton);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(942, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(258, 746);
-            this.panel2.TabIndex = 15;
-            // 
             // ifSlowModeCheckBox
             // 
             this.ifSlowModeCheckBox.AutoSize = true;
@@ -463,6 +452,38 @@
             this.ifSlowModeCheckBox.Size = new System.Drawing.Size(45, 22);
             this.ifSlowModeCheckBox.TabIndex = 16;
             this.ifSlowModeCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panel2.Controls.Add(this.button5);
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.colorGraphButton);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(942, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(258, 746);
+            this.panel2.TabIndex = 15;
+            // 
+            // button5
+            // 
+            this.button5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(88)))), ((int)(((byte)(157)))));
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(0, 507);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(258, 61);
+            this.button5.TabIndex = 14;
+            this.button5.Text = "Математический метод";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -518,6 +539,7 @@
         private RJToggleButton ifSlowModeCheckBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button button5;
     }
 }
 
