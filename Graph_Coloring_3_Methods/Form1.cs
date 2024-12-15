@@ -49,6 +49,7 @@ namespace Graph_Coloring_3_Methods
         private void customizeDesign()
         {
             panelDrawingSubmenu.Visible = false;
+            panel4.Visible = false;
         }
         private void hideSubmenu() 
         {
@@ -219,7 +220,8 @@ namespace Graph_Coloring_3_Methods
 
         private void buttonMatrix_Click(object sender, EventArgs e)
         {
-            
+            openChildForm(new MatrixForm());
+            showSubmenu(panel4);
         }
 
         private void addVertexButton_Click(object sender, EventArgs e)
@@ -265,6 +267,12 @@ namespace Graph_Coloring_3_Methods
             childform.BringToFront();
             childform.Show();
             label4.Text = childform.Text;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            // Необходимо реализовать логику , чтобы при нажатии на эту кнопку считывались данные из класса
+            // MatrixForm из textbox1 и textbox2 в переменные того же класса countVertices и countEdges
         }
     }
 }
