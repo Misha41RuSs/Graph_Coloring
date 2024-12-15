@@ -24,6 +24,7 @@ namespace Graph_Coloring_3_Methods
         private Color activeButtonColor = Color.FromArgb(25, 106, 143);
         private Color passiveButtonColor = Color.FromArgb(73, 76, 120);
         private Form activeForm = null;
+        private MatrixForm matrixForm;
 
         public Form1()
         {
@@ -254,7 +255,7 @@ namespace Graph_Coloring_3_Methods
         }
         private void openChildForm(Form childform) 
         {
-            if (activeForm != null) 
+            if (activeForm != null)
             {
                 activeForm.Close();
             }
@@ -266,13 +267,50 @@ namespace Graph_Coloring_3_Methods
             this.panel3.Tag = childform;
             childform.BringToFront();
             childform.Show();
-            label4.Text = childform.Text;
+
+            // Если открывается MatrixForm, сохраняем ссылку
+            if (childform is MatrixForm mf)
+            {
+                matrixForm = mf;
+                label4.Text = childform.Text;
+            }
+            else
+            {
+                matrixForm = null;
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            // Необходимо реализовать логику , чтобы при нажатии на эту кнопку считывались данные из класса
-            // MatrixForm из textbox1 и textbox2 в переменные того же класса countVertices и countEdges
+            if (matrixForm == null)
+            {
+                MessageBox.Show("MatrixForm не открыт.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                // Получаем количество вершин
+                int countVertices = matrixForm.CountVertices;
+
+                if (countVertices < 1 || countVertices > 6)
+                {
+                    MessageBox.Show("Количество вершин должно быть от 1 до 6.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Создаем матрицу смежности
+                matrixForm.CreateAdjacencyMatrix(countVertices);
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show("Ошибка: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Произошла непредвиденная ошибка: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
     }
 }
